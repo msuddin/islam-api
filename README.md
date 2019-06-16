@@ -18,11 +18,11 @@ Answer:
 
 
 ## Instructions
-Navigate to the root directory of this project and run the command below to run ll the tests and build the jar:
+Navigate to the root directory of this project and run the command below to run all the tests and build the jar:
 ```
 ./gradlew clean build
 ```
-No run the command below to run the application:
+Now run the command below to run the application:
 ```
 java -jar build/libs/<name_of_jar>.jar
 ```

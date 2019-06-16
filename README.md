@@ -15,7 +15,7 @@ Answer:
 * Build also build's a jar and puts it in /build path
 * Using spring boot plugin in gradle file - when jar is built, all additional dependencies are added to the jar when using this plugin
 * build.gradle file also supplies start class (bootJar - get's executed as part of gradle build task)
-
+* A rest controller test that spins up the spring context and uses a rest test template to make calls to the api server
 
 ## Instructions
 Navigate to the root directory of this project and run the command below to run all the tests and build the jar:

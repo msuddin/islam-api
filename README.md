@@ -20,14 +20,17 @@ Now run the command below to run the application:
 ```
 java -jar build/libs/<name_of_jar>.jar
 ```
-The application should be accessible on the following url:
+
+## Endpoints
 ```
-http://localhost:8081/prayertime/{day}/{month}/{year}
+http://localhost:8081/daily-prayer-time/{day}/{month}/{year}
+http://localhost:8081/allah-name/{nameByNumber}
 ```
-You can pass in a name on the url which should display the same name on the browser:
+## Example Outputs
+Prayer Times based on a date:
 ```
 // Set in the browser URL window:
-http://localhost:8081/prayertime/01/01/2000
+http://localhost:8081/daily-prayer-time/01/01/2000
 
 // Should see diplayed in the browser window:
 {
@@ -77,5 +80,26 @@ http://localhost:8081/prayertime/01/01/2000
             }
         }
     }
+}
+```
+Allah name based on 1-99
+```
+// Set in the browser URL window:
+http://localhost:8081/allah-name/01
+
+// Should see diplayed in the browser window:
+{
+    code: 200,
+    status: "OK",
+    data: [
+        {
+            name: "الرَّحْمَنُ",
+            transliteration: "Ar Rahmaan",
+            number: 1,
+            en: {
+                meaning: "The Beneficent"
+            }
+        }
+    ]
 }
 ```

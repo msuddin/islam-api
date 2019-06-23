@@ -1,6 +1,6 @@
 package com.thetestroom.controllers;
 
-import com.thetestroom.beans.PrayerTime;
+import com.thetestroom.beans.DailyPrayerTime;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class PrayerTimeTest {
+public class DailyPrayerTimeTest {
 
     @Test
     public void shouldBeAbleToSetName() throws IOException {
@@ -16,14 +16,14 @@ public class PrayerTimeTest {
         final String day = "01";
         final String month = "01";
         final String year = "2000";
-        PrayerTime prayerTime = new PrayerTime();
+        DailyPrayerTime dailyPrayerTime = new DailyPrayerTime();
 
         // When
-        prayerTime.setDay(day);
-        prayerTime.setMonth(month);
-        prayerTime.setYear(year);
+        dailyPrayerTime.setDay(day);
+        dailyPrayerTime.setMonth(month);
+        dailyPrayerTime.setYear(year);
 
         // Then
-        Assert.assertThat(prayerTime.getPrayerTimes(), containsString("01 Jan 2000"));
+        Assert.assertThat(dailyPrayerTime.getPrayerTimes(), containsString("01 Jan 2000"));
     }
 }

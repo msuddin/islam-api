@@ -5,18 +5,18 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 
-public class HelloTest {
+public class PrayerTimeTest {
 
     @Test
     public void shouldBeAbleToSetName() {
         // Given
         final String helloName = "Test Name";
-        Hello hello = new Hello();
+        PrayerTime prayerTime = new PrayerTime();
 
         // When
-        hello.setName(helloName);
+        prayerTime.setName(helloName);
 
         // Then
-        Assert.assertThat(hello.getName(), is(helloName));
+        Assert.assertThat(prayerTime.getName(), is(helloName));
     }
 }

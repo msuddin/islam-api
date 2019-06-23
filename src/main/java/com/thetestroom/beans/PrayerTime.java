@@ -1,6 +1,6 @@
 package com.thetestroom.beans;
 
-public class Hello {
+public class PrayerTime {
 
     private String name;
 

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class PrayerTime {
+public class DailyPrayerTime {
 
     final private String ALADHAN_API = "https://api.aladhan.com/timingsByAddress/";
     final private String ADDRESS = "Dagenham";

@@ -8,6 +8,20 @@ import java.net.URL;
 
 public class PrayerTime {
 
+    final private String ALADHAN_API = "https://api.aladhan.com/timingsByAddress/";
+    final private String ADDRESS = "Dagenham";
+    final private String METHOD = "4";
+
+    final private int IMSAK = 0;
+    final private int FAJR = 16;
+    final private int SUNRISE = -1;
+    final private int DHUHR = 6;
+    final private int ASR = 2;
+    final private int MAGHRIB = 4;
+    final private int SUNSET = 0;
+    final private int ISHA = -9;
+    final private int MIDNIGHT = 0;
+
     private String day;
     private String month;
     private String year;
@@ -37,17 +51,33 @@ public class PrayerTime {
     }
 
     public String getPrayerTimes() throws IOException {
-        URL url = new URL("https://api.aladhan.com/timingsByAddress/" + this.getDay() + "-" + this.getMonth() + "-" + this.getYear() + "?address=Dagenham&method=4&tune=0,16,-1,6,2,4,0,-9,0");
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setRequestProperty("Accept", "application/json");
-        BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+        URL url = new URL(
+                ALADHAN_API +
+                        this.getDay() + "-" +
+                        this.getMonth() + "-" +
+                        this.getYear() +
+                        "?address=" + ADDRESS +
+                        "&method=" + METHOD +
+                        "&tune=" +
+                            IMSAK + "," +
+                            FAJR +"," +
+                            SUNRISE + "," +
+                            DHUHR + "," +
+                            ASR + "," +
+                            MAGHRIB + "," +
+                            SUNSET + "," +
+                            ISHA + "," +
+                            MIDNIGHT);
+        HttpURLConnection httpUrlConection = (HttpURLConnection) url.openConnection();
+        httpUrlConection.setRequestMethod("GET");
+        httpUrlConection.setRequestProperty("Accept", "application/json");
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader((httpUrlConection.getInputStream())));
         String output;
-        StringBuffer sb = new StringBuffer();
-        while ((output = br.readLine()) != null) {
+        StringBuilder sb = new StringBuilder();
+        while ((output = bufferedReader.readLine()) != null) {
             sb.append(output);
         }
-        conn.disconnect();
+        httpUrlConection.disconnect();
         return sb.toString();
     }
 }

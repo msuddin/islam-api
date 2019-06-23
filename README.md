@@ -22,12 +22,12 @@ java -jar build/libs/<name_of_jar>.jar
 ```
 The application should be accessible on the following url:
 ```
-http://localhost:8080/prayertime/{day}/{month}/{year}
+http://localhost:8081/prayertime/{day}/{month}/{year}
 ```
 You can pass in a name on the url which should display the same name on the browser:
 ```
 // Set in the browser URL window:
-http://localhost:8080/prayertime/01/01/2000
+http://localhost:8081/prayertime/01/01/2000
 
 // Should see diplayed in the browser window:
 {

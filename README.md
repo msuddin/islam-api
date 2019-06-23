@@ -1,4 +1,4 @@
-# sample-java-spring-boot-web-api
+# islam-prayer-times-api
 
 ## Purpose
 
@@ -6,16 +6,10 @@ Question:
 What is the purpose of this project?
 
 Answer:
-* Main application that boots itself as a spring boot web app
-* As it's a spring application, it automatically finds all rest controllers
-* Rest controller takes in a parameter
-* Rest controller is using a bean to create a hello api and then prints the name
-* Have used bean configuration annotation instead of XML configuration
-* Have created test that runs as part of build
-* Build also build's a jar and puts it in /build path
-* Using spring boot plugin in gradle file - when jar is built, all additional dependencies are added to the jar when using this plugin
-* build.gradle file also supplies start class (bootJar - get's executed as part of gradle build task)
-* A rest controller test that spins up the spring context and uses a rest test template to make calls to the api server
+* To display the prayer times in the UK
+
+## Dependencies
+* This project use the API endpoint at https://aladhan.com/prayer-times-api
 
 ## Instructions
 Navigate to the root directory of this project and run the command below to run all the tests and build the jar:
@@ -28,13 +22,60 @@ java -jar build/libs/<name_of_jar>.jar
 ```
 The application should be accessible on the following url:
 ```
-http://localhost:8080/
+http://localhost:8081/prayertime/{day}/{month}/{year}
 ```
 You can pass in a name on the url which should display the same name on the browser:
 ```
 // Set in the browser URL window:
-http://localhost:8080/hello/batman
+http://localhost:8081/prayertime/01/01/2000
 
 // Should see diplayed in the browser window:
-hello batman
+{
+    code: 200,
+    status: "OK",
+    data: {
+        timings: {
+            Fajr: "06:14",
+            Sunrise: "08:04",
+            Dhuhr: "12:09",
+            Asr: "13:45",
+            Sunset: "16:00",
+            Maghrib: "16:04",
+            Isha: "18:00",
+            Imsak: "05:48",
+            Midnight: "00:03"
+        },
+        date: {
+            readable: "01 Jan 2000",
+            timestamp: "946684800"
+        },
+        meta: {
+            latitude: 51.53889,
+            longitude: 0.14743,
+            timezone: "Europe/London",
+            method: {
+                id: 4,
+                name: "Umm Al-Qura University, Makkah",
+                params: {
+                    Fajr: 18.5,
+                    Isha: "90 min"
+                }
+            },
+            latitudeAdjustmentMethod: "ANGLE_BASED",
+            midnightMode: "STANDARD",
+            school: "STANDARD",
+            offset: {
+                Imsak: 0,
+                Fajr: "16",
+                Sunrise: "-1",
+                Dhuhr: "6",
+                Asr: "2",
+                Maghrib: "4",
+                Sunset: 0,
+                Isha: "30 min",
+                Midnight: 0
+            }
+        }
+    }
+}
 ```

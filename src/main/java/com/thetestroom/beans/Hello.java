@@ -1,6 +1,6 @@
 package com.thetestroom.beans;
 
-public class Account {
+public class Hello {
 
     private String name;
 

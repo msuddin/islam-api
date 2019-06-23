@@ -9,7 +9,7 @@ Answer:
 * Main application that boots itself as a spring boot web app
 * As it's a spring application, it automatically finds all rest controllers
 * Rest controller takes in a parameter
-* Rest controller is using a bean to create an account and then prints the name
+* Rest controller is using a bean to create a hello api and then prints the name
 * Have used bean configuration annotation instead of XML configuration
 * Have created test that runs as part of build
 * Build also build's a jar and puts it in /build path

@@ -1,15 +1,15 @@
 package com.thetestroom.configurations;
 
-import com.thetestroom.beans.Account;
+import com.thetestroom.beans.Hello;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AccountConfiguration {
+public class HelloConfiguration {
 
     @Bean
-    public Account account() {
-        return new Account();
+    public Hello account() {
+        return new Hello();
     }
 
 }

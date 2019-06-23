@@ -2,25 +2,28 @@ package com.thetestroom.controllers;
 
 import com.thetestroom.beans.PrayerTime;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.logging.Logger;
+import java.io.IOException;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class PrayerTimeController {
-
-    static Logger log = Logger.getLogger(PrayerTimeController.class.getName());
 
     @Autowired
     private PrayerTime prayerTime;
 
-    @RequestMapping("/hello/{name}")
-    public String hi(@PathVariable("name") String name) {
-        prayerTime.setName(name);
-        log.info("/prayerTime/" + name + " has been called");
-        return "hello " + prayerTime.getName();
-    }
+    @RequestMapping(value = "/prayertime/{day}/{month}/{year}", method = RequestMethod.GET, produces = "application/json")
+    public String prayertime(
+            @PathVariable("day") String day,
+            @PathVariable("month") String month,
+            @PathVariable("year") String year)
+            throws IOException {
 
+        prayerTime.setDay(day);
+        prayerTime.setMonth(month);
+        prayerTime.setYear(year);
+
+        return prayerTime.getPrayerTimes();
+    }
 }

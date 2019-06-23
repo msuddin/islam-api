@@ -8,8 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class PrayerTimeConfiguration {
 
     @Bean
-    public PrayerTime account() {
+    public PrayerTime prayerTime() {
         return new PrayerTime();
     }
-
 }

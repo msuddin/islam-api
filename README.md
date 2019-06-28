@@ -25,6 +25,7 @@ java -jar build/libs/<name_of_jar>.jar
 ```
 http://localhost:8081/daily-prayer-time/{day}/{month}/{year}
 http://localhost:8081/allah-name/{nameByNumber}
+http://localhost:8081/ayah/{surahNumber}/{ayahNumber}
 ```
 ## Example Outputs
 Prayer Times based on a date:
@@ -101,5 +102,43 @@ http://localhost:8081/allah-name/01
             }
         }
     ]
+}
+```
+Ayah example output:
+```
+// Set in the browser URL window:
+http://localhost:8081/ayah/1/1
+
+// Should see the following response:
+{
+    code: 200,
+    status: "OK",
+    data: {
+        number: 1,
+        text: "In the name of God, The Most Gracious, The Dispenser of Grace:",
+        edition: {
+            identifier: "en.asad",
+            language: "en",
+            name: "Asad",
+            englishName: "Muhammad Asad",
+            format: "text",
+            type: "translation"
+        },
+        surah: {
+            number: 1,
+            name: "سُورَةُ ٱلْفَاتِحَةِ",
+            englishName: "Al-Faatiha",
+            englishNameTranslation: "The Opening",
+            numberOfAyahs: 7,
+            revelationType: "Meccan"
+        },
+        numberInSurah: 1,
+        juz: 1,
+        manzil: 1,
+        page: 1,
+        ruku: 1,
+        hizbQuarter: 1,
+        sajda: false
+    }
 }
 ```

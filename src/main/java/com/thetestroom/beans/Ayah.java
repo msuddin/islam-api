@@ -11,19 +11,10 @@ public class Ayah {
 
     final private String AYAH_API = "http://api.alquran.cloud/v1/ayah/";
 
-    private String surah;
     private String ayah;
-
-    public void setSurah(String surah) {
-        this.surah = surah;
-    }
 
     public void setAyah(String ayah) {
         this.ayah = ayah;
-    }
-
-    private String getSurah() {
-        return this.surah;
     }
 
     private String getAyah() {
@@ -31,7 +22,7 @@ public class Ayah {
     }
 
     public String getAyahFromSurah() throws IOException {
-        URL url = new URL(AYAH_API + this.getSurah() + ":" + this.getAyah() + "/en.asad");
+        URL url = new URL(AYAH_API + this.getAyah() + "/en.asad");
         return httpConnection.performUrlConnection(url);
     }
 }

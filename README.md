@@ -107,7 +107,7 @@ http://localhost:8081/allah-name/01
 Ayah example output:
 ```
 // Set in the browser URL window:
-http://localhost:8081/ayah/1/1
+http://localhost:8081/ayah/1
 
 // Should see the following response:
 {

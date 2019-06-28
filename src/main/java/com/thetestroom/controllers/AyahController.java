@@ -13,12 +13,8 @@ public class AyahController {
     @Autowired
     private Ayah ayah;
 
-    @RequestMapping(value = "/ayah/{surahNumber}/{ayahNumber}", method = RequestMethod.GET, produces = "application/json")
-    public String dailyPrayerTime(
-            @PathVariable("surahNumber") String surahNumber,
-            @PathVariable("ayahNumber") String ayahNumber)
-            throws IOException {
-        ayah.setSurah(surahNumber);
+    @RequestMapping(value = "/ayah/{ayahNumber}", method = RequestMethod.GET, produces = "application/json")
+    public String dailyPrayerTime(@PathVariable("ayahNumber") String ayahNumber) throws IOException {
         ayah.setAyah(ayahNumber);
 
         return ayah.getAyahFromSurah();
